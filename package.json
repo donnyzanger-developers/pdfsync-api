@@ -1,5 +1,5 @@
 {
-  "name": "pdf-api",
+  "name": "pdfsync-api",
   "version": "0.0.0",
   "private": true,
   "engines": {
