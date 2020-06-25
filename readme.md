@@ -1,9 +1,8 @@
-# pdfify
+# pdfsync
 
 ## Project Created From
 ```
 https://expressjs.com/en/starter/generator.html
-
 ```
 
 ## Deployment
