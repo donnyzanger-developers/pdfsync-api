@@ -27,7 +27,7 @@ async function imageToPdf(req, res) {
         res.status(500).send()
     }
 }
-
+ 
 async function getPdf(req, res) {
     res.download('./users/1/files/sample.pdf')
 }
