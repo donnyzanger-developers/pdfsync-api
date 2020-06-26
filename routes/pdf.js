@@ -25,7 +25,7 @@ async function imageToPdf(req, res) {
     } catch(err) {
         logger.info(err)
         res.status(500).send()
-    }
+    } 
 }
  
 async function getPdf(req, res) {
