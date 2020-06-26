@@ -18,12 +18,9 @@ module.exports = {
     }, 
 
     imageToPdf: async function(file) {
-        // save the file
         fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary');
-        // fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary');
         
         const res = await imagesToPdf([`users/1/files/${file.originalname}`], "users/1/files/sample.pdf");
-        // const res = await imagesToPdf(["users/1/files/image1.jpg"], "users/1/files/sample.pdf");
 
         return res;
     }, 
@@ -31,15 +28,15 @@ module.exports = {
     pdfToImage: async function(file) {
         var res = {}
         try {
-            fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary');
+            fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary'); // write jpg to disk
             const pdf2pic = new PDF2Pic({
-                // density: 100,           // output pixels per inch
-                savename: "te",   // output file name
-                savedir: "./users/1/files",    // output file location
-                format: "jpeg",          // output file format
-                // size: "600x600"         // output size in pixels
+                // density: 100, // output pixels per inch
+                savename: "", // output file name
+                savedir: "./users/1/files", // output file location
+                format: "jpeg", 
+                // size: "600x600" // output size in pixels
             });
-            res = await pdf2pic.convert(`./users/1/files/${file.originalname}`)
+            res = await pdf2pic.convert(`./users/1/files/${file.originalname}`) // jpg to convert
         } catch (err) {
             console.log(err);
         }
@@ -48,3 +45,4 @@ module.exports = {
     }
 
 }
+

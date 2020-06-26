@@ -6,9 +6,11 @@
     "node": "12.17.0"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www", 
+    "preinstall": "node scripts/gcpSetup.js"
   },
   "dependencies": {
+    "@google-cloud/storage": "^5.1.1",
     "chai": "4.2.0",
     "clean-css": "4.1.11",
     "constantinople": "3.1.1",
@@ -25,7 +27,7 @@
     "mocha": "8.0.1",
     "mongodb": "3.5.9",
     "morgan": "1.9.1",
-    "pdf2pic": "^1.4.0",
-    "uniqid": "^5.2.0"
+    "pdf2pic": "1.4.0",
+    "uniqid": "5.2.0"
   }
 }
