@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const imagesToPdf = require("images-to-pdf");
+const PDF2Pic = require("pdf2pic");
 const fs = require('fs');
 
 require('dotenv').config();
@@ -28,7 +29,21 @@ module.exports = {
     }, 
 
     pdfToImage: async function() {
-        return
+        var res = {}
+        try {
+            const pdf2pic = new PDF2Pic({
+                // density: 100,           // output pixels per inch
+                savename: "te",   // output file name
+                savedir: "./users/1/files",    // output file location
+                format: "jpeg",          // output file format
+                // size: "600x600"         // output size in pixels
+            });
+            res = await pdf2pic.convert("./users/1/files/te.pdf")
+        } catch (err) {
+            console.log(err);
+        }
+
+        return res;
     }
 
 }

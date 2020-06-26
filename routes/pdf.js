@@ -32,6 +32,10 @@ async function getPdf(req, res) {
     res.download('./users/1/files/sample.pdf')
 }
 
+async function getImage(req, res) {
+    res.download('./users/1/files/te_1.jpeg')
+}
+
 async function pdfToImage(req, res) {
     try {
         await pdf.pdfToImage()
@@ -46,5 +50,6 @@ router.post('/x', webhookCheck.checkAccess, x);
 router.post('/image_to_pdf', webhookCheck.checkAccess, imageToPdf);
 router.post('/pdf_to_image', webhookCheck.checkAccess, pdfToImage);
 router.get('/get_pdf', webhookCheck.checkAccess, getPdf);
+router.get('/get_image', webhookCheck.checkAccess, getImage);
 
 module.exports = router;
