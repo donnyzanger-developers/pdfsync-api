@@ -27,23 +27,25 @@ async function imageToPdf(req, res) {
         res.status(500).send()
     } 
 }
- 
+
+async function pdfToImage(req, res) {
+    try {
+        if (req.files.length > 0) {
+            await pdf.pdfToImage(req.files[0])
+        }
+        res.status(200).send()
+    } catch(err) {
+        logger.info(err)
+        res.status(500).send()
+    }
+}
+
 async function getPdf(req, res) {
     res.download('./users/1/files/sample.pdf')
 }
 
 async function getImage(req, res) {
     res.download('./users/1/files/te_1.jpeg')
-}
-
-async function pdfToImage(req, res) {
-    try {
-        await pdf.pdfToImage()
-        res.status(200).send()
-    } catch(err) {
-        logger.info(err)
-        res.status(500).send()
-    }
 }
 
 router.post('/x', webhookCheck.checkAccess, x);

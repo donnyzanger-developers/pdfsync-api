@@ -16,8 +16,8 @@ module.exports = {
         return res
     },
 
-    pdfToImage: async function() {
-        const res = await pdf.pdfToImage()
+    pdfToImage: async function(file) {
+        const res = await pdf.pdfToImage(file)
 
         return
     }

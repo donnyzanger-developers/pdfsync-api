@@ -28,9 +28,10 @@ module.exports = {
         return res;
     }, 
 
-    pdfToImage: async function() {
+    pdfToImage: async function(file) {
         var res = {}
         try {
+            fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary');
             const pdf2pic = new PDF2Pic({
                 // density: 100,           // output pixels per inch
                 savename: "te",   // output file name
@@ -38,7 +39,7 @@ module.exports = {
                 format: "jpeg",          // output file format
                 // size: "600x600"         // output size in pixels
             });
-            res = await pdf2pic.convert("./users/1/files/te.pdf")
+            res = await pdf2pic.convert(`./users/1/files/${file.originalname}`)
         } catch (err) {
             console.log(err);
         }
