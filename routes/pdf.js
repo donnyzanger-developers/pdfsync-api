@@ -3,6 +3,7 @@ var router = express.Router();
 const webhookCheck = require('../middleware/webhookCheck')
 const pdf = require('../controllers/pdf.js');
 const logger = require('heroku-logger');
+const functions = require('../functions/functions.js')
 
 require('dotenv').config();
 
@@ -41,11 +42,15 @@ async function pdfToImage(req, res) {
 }
 
 async function getPdf(req, res) {
-    res.download('./users/1/files/sample.pdf')
+    await res.download('./users/1/files/sample.pdf')
+    functions.deleteFile('./users/1/files/sample.pdf');
+    res.status(200).send()
 }
 
 async function getImage(req, res) {
-    res.download('./users/1/files/te_1.jpeg')
+    await res.download('./users/1/files/te_1.jpeg')
+    functions.deleteFile('./users/1/files/te_1.jpeg')
+    res.status(200).send()
 }
 
 router.post('/x', webhookCheck.checkAccess, x);
