@@ -19,7 +19,7 @@ async function x(req, res) {
 
 async function imageToPdf(req, res) {
     try {
-        if (req.files.length > 0) {
+        if (req.files.length > 0 && (req.files[0].originalname.endsWith('.jpg') || req.files[0].originalname.endsWith('.jpeg'))) {
             pdf.imageToPdf(req.files[0])
         }
         res.status(200).send()
@@ -31,7 +31,7 @@ async function imageToPdf(req, res) {
 
 async function pdfToImage(req, res) {
     try {
-        if (req.files.length > 0) {
+        if (req.files.length > 0  && (req.files[0].originalname.endsWith('.pdf'))) {
             await pdf.pdfToImage(req.files[0])
         }
         res.status(200).send()

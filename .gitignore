@@ -120,4 +120,5 @@ dist
 .DS_Store
 users/1/files/*.pdf
 users/1/files/*.jpeg
+users/1/files/*
 repl.js
