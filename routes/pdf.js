@@ -43,14 +43,10 @@ async function pdfToImage(req, res) {
 
 async function getPdf(req, res) {
     await res.download('./users/1/files/sample.pdf')
-    functions.deleteFile('./users/1/files/sample.pdf');
-    res.status(200).send()
 }
 
 async function getImage(req, res) {
     await res.download('./users/1/files/te_1.jpeg')
-    functions.deleteFile('./users/1/files/te_1.jpeg')
-    res.status(200).send()
 }
 
 router.post('/x', webhookCheck.checkAccess, x);
