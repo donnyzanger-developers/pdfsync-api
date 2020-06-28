@@ -49,7 +49,7 @@ async function getImage(req, res) {
     await res.download('./users/1/files/te_1.jpeg')
 }
 
-router.post('/x', webhookCheck.checkAccess, x);
+// router.post('/x', webhookCheck.checkAccess, x);
 router.post('/image_to_pdf', webhookCheck.checkAccess, imageToPdf);
 router.post('/pdf_to_image', webhookCheck.checkAccess, pdfToImage);
 router.get('/get_pdf', webhookCheck.checkAccess, getPdf);
