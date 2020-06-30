@@ -20,7 +20,7 @@ module.exports = {
     imageToPdf: async function(file) {
         fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary');
         
-        const res = await imagesToPdf([`users/1/files/${file.originalname}`], "users/1/files/sample.pdf");
+        const res = await imagesToPdf([`users/1/files/${file.originalname}`], "users/1/files/pdf2jpg2pdf.pdf");
 
         return res;
     }, 
@@ -31,7 +31,7 @@ module.exports = {
             fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary'); // write jpg to disk with this filename
             const pdf2pic = new PDF2Pic({
                 // density: 100, // output pixels per inch
-                savename: "", // output file name
+                savename: "pdf2jpg2pdf", // output file name
                 savedir: "./users/1/files", // output file location
                 format: "jpeg", 
                 // size: "600x600" // output size in pixels

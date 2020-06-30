@@ -36,7 +36,7 @@ async function pdfToImage(req, res) {
     try {
         if (req.files.length > 0  && (req.files[0].originalname.endsWith('.pdf'))) {
             await pdf.pdfToImage(req.files[0])
-            await res.download('./users/1/files/pdf2jpg2pdf.jpeg')
+            await res.download('./users/1/files/pdf2jpg2pdf_1.jpeg')
         } else {
             res.status(400).send()
             // res.status(200).send()
