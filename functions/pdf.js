@@ -28,7 +28,7 @@ module.exports = {
     pdfToImage: async function(file) {
         var res = {}
         try {
-            fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary'); // write jpg to disk
+            fs.writeFileSync(`./users/1/files/${file.originalname}`, file.buffer, 'binary'); // write jpg to disk with this filename
             const pdf2pic = new PDF2Pic({
                 // density: 100, // output pixels per inch
                 savename: "", // output file name

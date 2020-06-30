@@ -21,7 +21,7 @@ async function imageToPdf(req, res) {
     try {
         if (req.files.length > 0 && (req.files[0].originalname.endsWith('.jpg') || req.files[0].originalname.endsWith('.jpeg'))) {
             await pdf.imageToPdf(req.files[0])
-            await res.download('./users/1/files/sample.pdf')
+            await res.download('./users/1/files/pdf2jpg2pdf.pdf')
         } else {
             res.status(400).send()
             // res.status(200).send()
@@ -36,7 +36,7 @@ async function pdfToImage(req, res) {
     try {
         if (req.files.length > 0  && (req.files[0].originalname.endsWith('.pdf'))) {
             await pdf.pdfToImage(req.files[0])
-            await res.download('./users/1/files/te_1.jpeg')
+            await res.download('./users/1/files/pdf2jpg2pdf.jpeg')
         } else {
             res.status(400).send()
             // res.status(200).send()
